@@ -37,12 +37,12 @@ hexly/
 - [x] Configurar .gitignore
 
 #### ✅ Paso 1.2: Configuración del Backend
-- [ ] Inicializar proyecto Bun en `backend/`
-- [ ] Instalar dependencias: Hono, @hono/node-server
-- [ ] Instalar cliente de BD: `postgres` (si PostgreSQL) o `better-sqlite3` (si SQLite)
-- [ ] Configurar base de datos (PostgreSQL o SQLite)
-- [ ] Configurar variables de entorno (.env)
-- [ ] Crear estructura de carpetas del backend:
+- [x] Inicializar proyecto Bun en `backend/`
+- [x] Instalar dependencias: Hono, @hono/node-server
+- [x] Instalar cliente de BD: `@libsql/client` 
+- [x] Configurar base de datos (PostgreSQL o SQLite)
+- [x] Configurar variables de entorno (.env)
+- [x] Crear estructura de carpetas del backend:
   ```
   backend/
   ├── src/
@@ -57,7 +57,7 @@ hexly/
   ├── .env
   └── package.json
   ```
-- [ ] Crear archivo de conexión a base de datos (`src/db/connection.ts`)
+- [x] Crear archivo de conexión a base de datos (`src/db/connection.ts`)
 
 #### ✅ Paso 1.3: Configuración del Frontend
 - [ ] Inicializar proyecto Vue 3 + Vite en `frontend/`

@@ -20,6 +20,8 @@ dist/
 .idea/
 *.iml
 
+.cursor/
+
 
 bun_cache/
 
