@@ -60,9 +60,9 @@ hexly/
 - [x] Crear archivo de conexión a base de datos (`src/db/connection.ts`)
 
 #### ✅ Paso 1.3: Configuración del Frontend
-- [ ] Inicializar proyecto Vue 3 + Vite en `frontend/`
-- [ ] Instalar dependencias: vue-router, pinia
-- [ ] Configurar estructura de carpetas:
+- [x] Inicializar proyecto Vue 3 + Vite en `frontend/`
+- [x] Instalar dependencias: vue-router, pinia
+- [x] Configurar estructura de carpetas:
   ```
   frontend/
   ├── src/
@@ -344,4 +344,3 @@ npm run dev
 ---
 
 **Estado Actual**: Fase 1 - Configuración Inicial
-**Última Actualización**: 2025-01-23
