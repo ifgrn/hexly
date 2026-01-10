@@ -21,13 +21,13 @@ Sistema completo para gestionar cuentas de League of Legends, incluyendo estadí
 
 ## 🗺️ Arquitectura del Proyecto
 
-```
+"
 hexly/
 ├── frontend/          # Aplicación Vue 3
 ├── backend/           # API con Bun + Hono
 ├── README.md          # Este archivo
 └── docs/              # Documentación adicional
-```
+"
 
 ## 📝 Plan de Desarrollo
 
@@ -47,7 +47,7 @@ hexly/
 - [x] Configurar base de datos (PostgreSQL o SQLite)
 - [x] Configurar variables de entorno (.env)
 - [x] Crear estructura de carpetas del backend:
-  ```
+  "
   backend/
   ├── src/
   │   ├── routes/
@@ -60,7 +60,7 @@ hexly/
   │   └── index.ts
   ├── .env
   └── package.json
-  ```
+  "
 - [x] Crear archivo de conexión a base de datos (`src/db/connection.ts`)
 
 #### ✅ Paso 1.3: Configuración del Frontend
@@ -68,7 +68,7 @@ hexly/
 - [x] Inicializar proyecto Vue 3 + Vite en `frontend/`
 - [x] Instalar dependencias: vue-router, pinia
 - [x] Configurar estructura de carpetas:
-  ```
+  "
   frontend/
   ├── src/
   │   ├── components/
@@ -79,7 +79,7 @@ hexly/
   │   ├── utils/
   │   └── main.ts
   └── package.json
-  ```
+  "
 
 ---
 
@@ -96,12 +96,10 @@ hexly/
 #### ✅ Paso 2.2: Backend - Rutas de Autenticación
 
 - [ ] Crear ruta POST `/api/auth/register` (registro)
-  - Usar query SQL: `INSERT INTO users (email, password, username) VALUES (?, ?, ?)`
 - [ ] Crear ruta POST `/api/auth/login` (login)
-  - Usar query SQL: `SELECT * FROM users WHERE email = ?`
 - [ ] Crear ruta POST `/api/auth/logout` (logout)
   - Limpiar cookie del token
-- [ ] Implementar hash de contraseñas (bcrypt)
+- [ ] Implementar hash de contraseñas (bcrypt - bun)
 - [ ] Implementar generación de JWT
 - [ ] Configurar cookies HTTP-only para el token
 - [ ] Manejar errores de SQL apropiadamente
@@ -139,7 +137,7 @@ hexly/
 #### ✅ Paso 3.1: Backend - Tabla de Cuenta
 
 - [ ] Crear script SQL de migración para tabla `lol_accounts`
-- [ ] Definir estructura: id, userId, nick, tag, server, apiKey (encriptado), rank, winRate, createdAt, updatedAt
+- [ ] Definir estructura: id, userId, nick, tag, server, username, password (encriptado), rank, winRate, createdAt, updatedAt
 - [ ] Agregar foreign key a tabla `users`
 - [ ] Ejecutar migración para crear la tabla
 - [ ] Crear funciones de queries en `src/db/queries/accounts.ts`:
@@ -166,7 +164,7 @@ hexly/
 - [ ] Crear componente `AccountCard.vue`
 - [ ] Mostrar: icono, nick#tag, server, rank, win rate
 - [ ] Implementar botón para copiar nick#tag
-- [ ] Implementar toggle para mostrar/ocultar API key
+- [ ] Implementar toggle para mostrar/ocultar password
 - [ ] Implementar estados: activa/inactiva
 
 #### ✅ Paso 3.4: Frontend - Vista Dashboard
@@ -333,7 +331,7 @@ hexly/
 
 ## 🚀 Comandos Útiles
 
-### Backend
+### Backend-Init
 
 ```bash
 cd backend
@@ -341,7 +339,7 @@ bun install
 bun run dev
 ```
 
-### Frontend
+### Frontend-Init
 
 ```bash
 cd frontend
