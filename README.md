@@ -5,12 +5,14 @@ Sistema completo para gestionar cuentas de League of Legends, incluyendo estadí
 ## 📋 Stack Tecnológico
 
 ### Frontend
+
 - **Vue 3** + **Vite**
 - **Vue Router** (navegación)
 - **Pinia Store** (gestión de estado)
 - UI Framework (a definir: Vuetify, Quasar, o Tailwind CSS)
 
 ### Backend
+
 - **Bun** (runtime)
 - **Hono** (framework web)
 - **PostgreSQL** o **SQLite** (base de datos)
@@ -32,14 +34,16 @@ hexly/
 ### FASE 1: Configuración Inicial del Proyecto
 
 #### ✅ Paso 1.1: Estructura del Proyecto
+
 - [x] Crear estructura de carpetas (frontend/backend)
 - [x] Inicializar repositorio Git
 - [x] Configurar .gitignore
 
 #### ✅ Paso 1.2: Configuración del Backend
+
 - [x] Inicializar proyecto Bun en `backend/`
 - [x] Instalar dependencias: Hono, @hono/node-server
-- [x] Instalar cliente de BD: `@libsql/client` 
+- [x] Instalar cliente de BD: `@libsql/client`
 - [x] Configurar base de datos (PostgreSQL o SQLite)
 - [x] Configurar variables de entorno (.env)
 - [x] Crear estructura de carpetas del backend:
@@ -60,6 +64,7 @@ hexly/
 - [x] Crear archivo de conexión a base de datos (`src/db/connection.ts`)
 
 #### ✅ Paso 1.3: Configuración del Frontend
+
 - [x] Inicializar proyecto Vue 3 + Vite en `frontend/`
 - [x] Instalar dependencias: vue-router, pinia
 - [x] Configurar estructura de carpetas:
@@ -81,13 +86,15 @@ hexly/
 ### FASE 2: Sistema de Autenticación
 
 #### ✅ Paso 2.1: Backend - Tabla de Usuario
-- [ ] Crear script SQL de migración para tabla `users`
-- [ ] Definir estructura: id, email, password (hasheado), username, createdAt, updatedAt
-- [ ] Ejecutar migración para crear la tabla
-- [ ] Crear funciones de queries en `src/db/queries/users.ts`:
+
+- [x] Crear script SQL de migración para tabla `users`
+- [x] Definir estructura: id, email, password (hasheado), username, createdAt, updatedAt
+- [x] Ejecutar migración para crear la tabla
+- [x] Crear funciones de queries en `src/db/queries/users.ts`:
   - `createUser()`, `getUserByEmail()`, `getUserById()`
 
 #### ✅ Paso 2.2: Backend - Rutas de Autenticación
+
 - [ ] Crear ruta POST `/api/auth/register` (registro)
   - Usar query SQL: `INSERT INTO users (email, password, username) VALUES (?, ?, ?)`
 - [ ] Crear ruta POST `/api/auth/login` (login)
@@ -100,22 +107,26 @@ hexly/
 - [ ] Manejar errores de SQL apropiadamente
 
 #### ✅ Paso 2.3: Backend - Middleware de Autenticación
+
 - [ ] Crear middleware para verificar JWT
 - [ ] Crear middleware para proteger rutas privadas
 
 #### ✅ Paso 2.4: Frontend - Vistas de Autenticación
+
 - [ ] Crear vista `Login.vue`
 - [ ] Crear vista `Signup.vue`
 - [ ] Crear componente de formulario reutilizable
 - [ ] Implementar validación de formularios
 
 #### ✅ Paso 2.5: Frontend - Store de Autenticación (Pinia)
+
 - [ ] Crear store `useAuthStore`
 - [ ] Implementar acciones: login, register, logout
 - [ ] Implementar estado: user, isAuthenticated, token
 - [ ] Implementar persistencia del estado (localStorage)
 
 #### ✅ Paso 2.6: Frontend - Router y Guards
+
 - [ ] Configurar Vue Router
 - [ ] Crear rutas: `/`, `/login`, `/signup`, `/dashboard`
 - [ ] Implementar guards de navegación (proteger rutas privadas)
@@ -126,6 +137,7 @@ hexly/
 ### FASE 3: Sistema de Cuentas de LOL
 
 #### ✅ Paso 3.1: Backend - Tabla de Cuenta
+
 - [ ] Crear script SQL de migración para tabla `lol_accounts`
 - [ ] Definir estructura: id, userId, nick, tag, server, apiKey (encriptado), rank, winRate, createdAt, updatedAt
 - [ ] Agregar foreign key a tabla `users`
@@ -134,6 +146,7 @@ hexly/
   - `getAccountsByUserId()`, `getAccountById()`, `createAccount()`, `updateAccount()`, `deleteAccount()`
 
 #### ✅ Paso 3.2: Backend - Rutas de Cuentas
+
 - [ ] Crear ruta GET `/api/accounts` (obtener todas las cuentas del usuario)
   - Usar query SQL: `SELECT * FROM lol_accounts WHERE userId = ?`
 - [ ] Crear ruta GET `/api/accounts/:id` (obtener cuenta específica)
@@ -149,6 +162,7 @@ hexly/
 - [ ] Manejar errores de SQL apropiadamente
 
 #### ✅ Paso 3.3: Frontend - Componente AccountCard
+
 - [ ] Crear componente `AccountCard.vue`
 - [ ] Mostrar: icono, nick#tag, server, rank, win rate
 - [ ] Implementar botón para copiar nick#tag
@@ -156,6 +170,7 @@ hexly/
 - [ ] Implementar estados: activa/inactiva
 
 #### ✅ Paso 3.4: Frontend - Vista Dashboard
+
 - [ ] Crear vista `Dashboard.vue`
 - [ ] Implementar layout: logo, menú de usuario, botón "Add Account"
 - [ ] Mostrar lista de AccountCards
@@ -163,11 +178,13 @@ hexly/
 - [ ] Implementar diseño responsive
 
 #### ✅ Paso 3.5: Frontend - Store de Cuentas (Pinia)
+
 - [ ] Crear store `useAccountStore`
 - [ ] Implementar acciones: fetchAccounts, addAccount, updateAccount, deleteAccount, setActiveAccount
 - [ ] Implementar estado: accounts, activeAccount
 
 #### ✅ Paso 3.6: Frontend - Formulario de Cuenta
+
 - [ ] Crear componente `AccountForm.vue` (modal o página)
 - [ ] Campos: nick, tag, server, apiKey
 - [ ] Implementar validación
@@ -178,6 +195,7 @@ hexly/
 ### FASE 4: Integración con API de Riot Games
 
 #### ✅ Paso 4.1: Backend - Servicio de Riot API
+
 - [ ] Crear servicio para consumir Riot Games API
 - [ ] Implementar funciones para obtener:
   - Información del jugador
@@ -189,6 +207,7 @@ hexly/
 - [ ] Implementar caché de respuestas
 
 #### ✅ Paso 4.2: Backend - Rutas de Estadísticas
+
 - [ ] Crear ruta GET `/api/accounts/:id/stats` (estadísticas generales)
 - [ ] Crear ruta GET `/api/accounts/:id/matches` (historial de partidas)
 - [ ] Crear ruta GET `/api/accounts/:id/mastery` (maestría de campeones)
@@ -199,6 +218,7 @@ hexly/
 ### FASE 5: Historial de Partidas
 
 #### ✅ Paso 5.1: Backend - Tabla de Partidas
+
 - [ ] Crear script SQL de migración para tabla `matches`
 - [ ] Definir estructura: id, accountId, matchId, champion, result, kda, date, etc.
 - [ ] Agregar foreign key a tabla `lol_accounts`
@@ -207,6 +227,7 @@ hexly/
   - `getMatchesByAccountId()`, `createMatch()`, `getRecentMatches()`, `calculateWinRate()`
 
 #### ✅ Paso 5.2: Backend - Sincronización de Partidas
+
 - [ ] Implementar job/cron para sincronizar partidas
 - [ ] Obtener últimas partidas desde Riot API
 - [ ] Guardar en base de datos usando INSERT SQL
@@ -215,6 +236,7 @@ hexly/
   - Usar query: `SELECT COUNT(*) FROM matches WHERE accountId = ? AND result = 'win'`
 
 #### ✅ Paso 5.3: Frontend - Componente MatchHistory
+
 - [ ] Crear componente `MatchHistory.vue`
 - [ ] Mostrar lista de últimas partidas
 - [ ] Mostrar: champion, resultado, KDA, fecha
@@ -226,6 +248,7 @@ hexly/
 ### FASE 6: Inventario de Skins
 
 #### ✅ Paso 6.1: Backend - Tabla de Skins
+
 - [ ] Crear script SQL de migración para tabla `skins`
 - [ ] Definir estructura: id, accountId, skinId, champion, name, owned, etc.
 - [ ] Agregar foreign key a tabla `lol_accounts`
@@ -234,6 +257,7 @@ hexly/
   - `getSkinsByAccountId()`, `createSkin()`, `updateSkin()`, `bulkUpdateSkins()`
 
 #### ✅ Paso 6.2: Backend - Rutas de Skins
+
 - [ ] Crear ruta GET `/api/accounts/:id/skins` (obtener skins)
   - Usar query SQL: `SELECT * FROM skins WHERE accountId = ?`
 - [ ] Crear ruta PUT `/api/accounts/:id/skins` (actualizar inventario)
@@ -242,6 +266,7 @@ hexly/
 - [ ] Implementar bulk insert/update para sincronización masiva
 
 #### ✅ Paso 6.3: Frontend - Componente SkinsInventory
+
 - [ ] Crear componente `SkinsInventory.vue`
 - [ ] Mostrar grid de skins
 - [ ] Mostrar: imagen, nombre, champion, estado (owned/not owned)
@@ -254,6 +279,7 @@ hexly/
 ### FASE 7: Maestría de Campeones
 
 #### ✅ Paso 7.1: Frontend - Componente ChampionMastery
+
 - [ ] Crear componente `ChampionMastery.vue`
 - [ ] Mostrar lista de campeones con nivel de maestría
 - [ ] Mostrar puntos de maestría
@@ -265,6 +291,7 @@ hexly/
 ### FASE 8: Sistema de Notificaciones (Toasts)
 
 #### ✅ Paso 8.1: Frontend - Sistema de Toasts
+
 - [ ] Crear componente `Toast.vue`
 - [ ] Crear composable `useToast` o store `useToastStore`
 - [ ] Implementar diferentes tipos: success, error, warning, info
@@ -276,12 +303,14 @@ hexly/
 ### FASE 9: Mejoras y Pulido
 
 #### ✅ Paso 9.1: UI/UX
+
 - [ ] Implementar tema oscuro/claro
 - [ ] Mejorar diseño responsive
 - [ ] Agregar animaciones y transiciones
 - [ ] Optimizar carga de imágenes
 
 #### ✅ Paso 9.2: Optimizaciones
+
 - [ ] Implementar lazy loading de componentes
 - [ ] Optimizar queries SQL (usar índices, evitar N+1 queries)
 - [ ] Implementar paginación donde sea necesario (LIMIT/OFFSET en SQL)
@@ -289,11 +318,13 @@ hexly/
   - Índices sugeridos: `users(email)`, `lol_accounts(userId)`, `matches(accountId, date)`, `skins(accountId)`
 
 #### ✅ Paso 9.3: Testing
+
 - [ ] Escribir tests unitarios para stores
 - [ ] Escribir tests para componentes críticos
 - [ ] Escribir tests para rutas del backend
 
 #### ✅ Paso 9.4: Documentación
+
 - [ ] Documentar API (Swagger/OpenAPI)
 - [ ] Documentar componentes principales
 - [ ] Crear guía de instalación y despliegue
@@ -303,6 +334,7 @@ hexly/
 ## 🚀 Comandos Útiles
 
 ### Backend
+
 ```bash
 cd backend
 bun install
@@ -310,6 +342,7 @@ bun run dev
 ```
 
 ### Frontend
+
 ```bash
 cd frontend
 npm install
@@ -335,7 +368,7 @@ npm run dev
 - **Base de Datos**: Se usa SQL directo sin ORM. Todas las queries se escriben manualmente.
 - **Migraciones**: Crear scripts SQL en `backend/src/migrations/` con formato: `001_create_users_table.sql`
 - **Queries**: Organizar funciones de queries en `backend/src/db/queries/` por entidad (users.ts, accounts.ts, etc.)
-- **Seguridad**: 
+- **Seguridad**:
   - Siempre usar prepared statements para evitar SQL injection
   - Validar y sanitizar inputs antes de ejecutar queries
   - Encriptar datos sensibles (API keys) antes de guardar
