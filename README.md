@@ -95,19 +95,19 @@ hexly/
 
 #### ✅ Paso 2.2: Backend - Rutas de Autenticación
 
-- [ ] Crear ruta POST `/api/auth/register` (registro)
-- [ ] Crear ruta POST `/api/auth/login` (login)
-- [ ] Crear ruta POST `/api/auth/logout` (logout)
+- [x] Crear ruta POST `/api/auth/register` (registro)
+- [x] Crear ruta POST `/api/auth/login` (login)
+- [x] Crear ruta POST `/api/auth/logout` (logout)
   - Limpiar cookie del token
-- [ ] Implementar hash de contraseñas (bcrypt - bun)
-- [ ] Implementar generación de JWT
-- [ ] Configurar cookies HTTP-only para el token
-- [ ] Manejar errores de SQL apropiadamente
+- [x] Implementar hash de contraseñas (bcrypt - bun)
+- [x] Implementar generación de JWT
+- [x] Configurar cookies HTTP-only para el token
+- [x] Manejar errores de SQL apropiadamente
 
 #### ✅ Paso 2.3: Backend - Middleware de Autenticación
 
-- [ ] Crear middleware para verificar JWT
-- [ ] Crear middleware para proteger rutas privadas
+- [x] Crear middleware para verificar JWT
+- [x] Crear middleware para proteger rutas privadas
 
 #### ✅ Paso 2.4: Frontend - Vistas de Autenticación
 
