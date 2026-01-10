@@ -11,7 +11,7 @@ if (!authToken) {
     throw new Error("TURSO_AUTH_TOKEN environment variable is not set");
 }
 
-export const turso = createClient({
+export const db = createClient({
     url: databaseUrl,
     authToken: authToken,
 });
