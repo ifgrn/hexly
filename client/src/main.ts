@@ -12,3 +12,14 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
+router.beforeEach((to, from, next) => {
+  if (!document.startViewTransition) {
+    next()
+    return
+  }
+
+  document.startViewTransition(() => {
+    next()
+  })
+})
