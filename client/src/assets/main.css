@@ -1,36 +1,18 @@
-@import './base.css';
-@import "tailwindcss";
+@import 'tailwindcss';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+@font-face {
+  font-family: 'General Sans';
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./fonts/GeneralSans-Variable.woff2') format('woff2');
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+:root {
+  color-scheme: dark;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+body {
+  font-family: 'General Sans', sans-serif;
+  background-color: #161413;
+  min-height: 100dvh;
 }
