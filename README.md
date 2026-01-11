@@ -21,13 +21,13 @@ Sistema completo para gestionar cuentas de League of Legends, incluyendo estadí
 
 ## 🗺️ Arquitectura del Proyecto
 
-"
+```text
 hexly/
 ├── frontend/          # Aplicación Vue 3
 ├── backend/           # API con Bun + Hono
 ├── README.md          # Este archivo
 └── docs/              # Documentación adicional
-"
+```
 
 ## 📝 Plan de Desarrollo
 
@@ -47,7 +47,8 @@ hexly/
 - [x] Configurar base de datos (PostgreSQL o SQLite)
 - [x] Configurar variables de entorno (.env)
 - [x] Crear estructura de carpetas del backend:
-  "
+
+  ```text
   backend/
   ├── src/
   │   ├── routes/
@@ -59,8 +60,8 @@ hexly/
   │   ├── utils/
   │   └── index.ts
   ├── .env
-  └── package.json
-  "
+  └── package.json```
+
 - [x] Crear archivo de conexión a base de datos (`src/db/connection.ts`)
 
 #### ✅ Paso 1.3: Configuración del Frontend
@@ -68,7 +69,8 @@ hexly/
 - [x] Inicializar proyecto Vue 3 + Vite en `frontend/`
 - [x] Instalar dependencias: vue-router, pinia
 - [x] Configurar estructura de carpetas:
-  "
+
+  ```text
   frontend/
   ├── src/
   │   ├── components/
@@ -78,10 +80,8 @@ hexly/
   │   ├── services/
   │   ├── utils/
   │   └── main.ts
-  └── package.json
-  "
+  └── package.json ```
 
----
 
 ### FASE 2: Sistema de Autenticación
 
