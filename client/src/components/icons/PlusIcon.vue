@@ -1,0 +1,20 @@
+<script lang="ts" setup></script>
+
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    class="lucide lucide-plus-icon lucide-plus"
+    viewBox="0 0 24 24"
+  >
+    <path d="M5 12h14m-7-7v14" />
+  </svg>
+</template>
+
+<style scoped></style>
