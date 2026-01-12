@@ -3,27 +3,30 @@ import { logger } from "hono/logger";
 import { cors } from "hono/cors";
 import usersRoute from "./routes/users";
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "nodejs";
 
 const app = new Hono();
 
-app.use(logger());
+app.use("*", logger());
 
-// 🔑 CORS GLOBAL
 app.use(
   "/api/*",
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://hexly-gamma.vercel.app",
+    ],
     credentials: true,
-    allowHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials", "Access-Control-Allow-Methods", "Access-Control-Allow-Headers"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowHeaders: [
+      "Content-Type",
+      "Authorization",
+    ],
   })
 );
 
-// rutas
 app.route("/api/auth", usersRoute);
 
-// ❗ EXPORT CORRECTO PARA VERCEL
+app.get("/", (c) => c.json({ status: "ok" }));
+
 export default app;
