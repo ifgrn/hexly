@@ -114,7 +114,7 @@ hexly/
 - [x] Crear vista `Login.vue`
 - [x] Crear vista `Signup.vue`
 - [x] Crear componente de formulario reutilizable
-- [ ] Implementar validación de formularios
+- [x] Implementar validación de formularios
 
 #### ✅ Paso 2.5: Frontend - Store de Autenticación (Pinia)
 
@@ -128,7 +128,7 @@ hexly/
 - [x] Configurar Vue Router
 - [x] Crear rutas: `/`, `/login`, `/signup`, `/dashboard`
 - [ ] Implementar guards de navegación (proteger rutas privadas)
-- [ ] Redirigir usuarios autenticados desde login/signup
+- [x] Redirigir usuarios autenticados desde login/signup
 
 ---
 

@@ -1,5 +1,5 @@
-import type { CreatedUser, UserLogin } from "../../types/types";
-import { db } from "../connection";
+import type { CreatedUser, UserLogin } from "../../types/types.js";
+import { db } from "../connection.js";
 
 const handleDbError = (error: any) => {
   if (error.message?.includes("UNIQUE constraint failed")) {

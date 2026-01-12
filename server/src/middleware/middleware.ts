@@ -1,7 +1,7 @@
 import type { Context, Next } from "hono";
 import { getSignedCookie } from "hono/cookie";
 import { verify } from "hono/jwt";
-import { COOKIE_NAME } from "../utils/cookie-options";
+import { COOKIE_NAME } from "../utils/cookie-options.js";
 
 export const middleware = async (c: Context, next: Next) => {
   const secretKey = process.env.JWT_SECRET_KEY;

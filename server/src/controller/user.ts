@@ -1,8 +1,8 @@
 import type { Context } from "hono";
-import type { LoginReq, UserReq } from "../types/types";
-import { validateLogin, validateRegistration } from "../utils/validator";
-import { createUser, getUserInfo } from "../db/queries/users";
-import { eraseCookie, setCookies } from "../utils/cookies";
+import type { LoginReq, UserReq } from "../types/types.js";
+import { validateLogin, validateRegistration } from "../utils/validator.js";
+import { createUser, getUserInfo } from "../db/queries/users.js";
+import { eraseCookie, setCookies } from "../utils/cookies.js";
 
 export const handleLogin = async (c: Context) => {
   try {

@@ -3,7 +3,7 @@ const API_URL = import.meta.env.VITE_API_URL
 export const loginHandler = async (formdata: FormData) => {
   const username = formdata.get('username') as string
   const password = formdata.get('password') as string
-  const response = await fetch(`${API_URL}api/v1/users/login`, {
+  const response = await fetch(`${API_URL}api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: "include",
@@ -22,7 +22,7 @@ export const signUpHandler = async (formdata: FormData) => {
   const username = formdata.get('username') as string
   const email = formdata.get('email') as string
   const password = formdata.get('password') as string
-  const response = await fetch(`${API_URL}api/v1/users/register`, {
+  const response = await fetch(`${API_URL}api/auth/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: "include",
@@ -38,8 +38,9 @@ export const signUpHandler = async (formdata: FormData) => {
 
 
 export const signoutHandler = async () => {
-  const response = await fetch(`${API_URL}api/v1/users/logout`, {
+  const response = await fetch(`${API_URL}api/auth/logout`, {
     method: 'POST',
+    headers: {},
     credentials: "include",
   })
 

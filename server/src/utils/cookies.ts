@@ -1,7 +1,7 @@
 import type { Context } from "hono";
 import { setSignedCookie, deleteCookie } from "hono/cookie";
-import { generateToken } from "./jwt-auth";
-import { cookieOptions, COOKIE_NAME } from "./cookie-options";
+import { generateToken } from "./jwt-auth.js";
+import { cookieOptions, COOKIE_NAME } from "./cookie-options.js";
 
 export const setCookies = async (c: Context, userId: string) => {
   const token = await generateToken(userId);

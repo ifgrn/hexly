@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { handleLogin, handleLogOut, handleSignUp } from "../controller/user";
+import { handleLogin, handleLogOut, handleSignUp } from "../controller/user.js";
 
 const router = new Hono();
 

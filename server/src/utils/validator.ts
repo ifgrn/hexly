@@ -1,4 +1,4 @@
-import type { LoginReq, UserReq } from "../types/types";
+import type { LoginReq, UserReq } from "../types/types.js";
 
 export const validateRegistration = (request: UserReq) => {
   const errors: string[] = [];

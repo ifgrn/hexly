@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { cors } from "hono/cors";
-import usersRoute from "./routes/users";
+import userRoutes from "./routes/users.js";
 
 export const runtime = "nodejs";
 
@@ -25,7 +25,7 @@ app.use(
   })
 );
 
-app.route("/api/auth", usersRoute);
+app.route("/api/auth", userRoutes);
 
 app.get("/", (c) => c.json({ status: "ok" }));
 

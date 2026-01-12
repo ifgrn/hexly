@@ -5,6 +5,9 @@ export interface FormInput {
   label: string
   placeholder: string
   required: boolean
+  pattern?: string
+  minLength?: number
+  errorMessage?: string
 }
 
 export interface Account {

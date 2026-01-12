@@ -1,4 +1,4 @@
-import { db } from "../connection";
+import { db } from "../connection.js";
 
 const createUsersTable = `
 CREATE TABLE IF NOT EXISTS users (
