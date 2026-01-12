@@ -2,7 +2,7 @@ import { sign } from "hono/jwt";
 
 export const generateToken = async (userId: string) => {
   const now = Math.floor(Date.now() / 1000);
-  const secretKey = Bun.env.JWT_SECRET_KEY;
+  const secretKey = process.env.JWT_SECRET_KEY;
 
   if (!secretKey) {
     throw new Error("JWT_SECRET_KEY is not defined");

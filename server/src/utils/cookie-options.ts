@@ -1,4 +1,4 @@
-const environment = Bun.env.NODE_ENV;
+const environment = process.env.NODE_ENV;
 
 export const COOKIE_NAME =
   environment === "production" ? "__Host-token" : "token";

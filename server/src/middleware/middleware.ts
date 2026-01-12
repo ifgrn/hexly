@@ -4,7 +4,7 @@ import { verify } from "hono/jwt";
 import { COOKIE_NAME } from "../utils/cookie-options";
 
 export const middleware = async (c: Context, next: Next) => {
-  const secretKey = Bun.env.JWT_SECRET_KEY;
+  const secretKey = process.env.JWT_SECRET_KEY;
 
   if (!secretKey) {
     console.error("JWT_SECRET_KEY is not defined");

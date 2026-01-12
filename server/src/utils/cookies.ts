@@ -5,7 +5,7 @@ import { cookieOptions, COOKIE_NAME } from "./cookie-options";
 
 export const setCookies = async (c: Context, userId: string) => {
   const token = await generateToken(userId);
-  const secretKey = Bun.env.JWT_SECRET_KEY;
+  const secretKey = process.env.JWT_SECRET_KEY;
 
   if (!secretKey) throw new Error("JWT_SECRET_KEY is not defined");
 

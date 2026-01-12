@@ -1,7 +1,7 @@
 import { createClient } from "@libsql/client";
 
-const databaseUrl = Bun.env.TURSO_DATABASE_URL;
-const authToken = Bun.env.TURSO_AUTH_TOKEN;
+const databaseUrl = process.env.TURSO_DATABASE_URL;
+const authToken = process.env.TURSO_AUTH_TOKEN;
 
 if (!databaseUrl) {
   throw new Error("TURSO_DATABASE_URL environment variable is not set");
