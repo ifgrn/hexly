@@ -13,11 +13,11 @@ app.use(logger());
 
 // 🔑 CORS GLOBAL
 app.use(
-  "*",
+  "/api/*",
   cors({
     origin: "http://localhost:5173",
     credentials: true,
-    allowHeaders: ["Content-Type", "Authorization"],
+    allowHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials", "Access-Control-Allow-Methods", "Access-Control-Allow-Headers"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
 );
