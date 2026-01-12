@@ -70,7 +70,7 @@ export const handleSignUp = async (c: Context) => {
       requestBody.email
     );
 
-    if (result.error) {
+    if ("error" in result) {
       return c.json(
         { success: false, error: result.error },
         result.status as any
