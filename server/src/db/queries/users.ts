@@ -4,12 +4,13 @@ import { db } from "../connection";
 const handleDbError = (error: any) => {
   if (error.message?.includes("UNIQUE constraint failed")) {
     return {
+      success: false as const,
       error: "Username or email already exists",
       status: 409,
     };
   }
   console.error("Database Error:", error);
-  return { error: "Internal server error", status: 500 };
+  return { success: false as const, error: "Internal server error", status: 500 };
 };
 
 export const createUser = async (
@@ -29,7 +30,7 @@ export const createUser = async (
       throw new Error("Insert failed: No rows returned");
     }
 
-    return { success: true, user };
+    return { success: true as const, user };
   } catch (error) {
     return handleDbError(error);
   }
@@ -39,7 +40,7 @@ export const getUserById = async (id: string) => {
   const userId = id?.trim();
 
   if (!userId) {
-    return { error: "User Id is required", status: 400 };
+    return { success: false as const, error: "User Id is required", status: 400 };
   }
 
   try {
@@ -51,11 +52,11 @@ export const getUserById = async (id: string) => {
     const user = stmt.rows[0];
 
     if (!user) {
-      return { error: "User not found", status: 404 };
+      return { success: false as const, error: "User not found", status: 404 };
     }
 
     return {
-      success: true,
+      success: true as const,
       user: { id: user.id, username: user.username, email: user.email },
     };
   } catch (error) {
@@ -73,11 +74,11 @@ export const getUserByEmail = async (email: string) => {
     const user = stmt.rows[0];
 
     if (!user) {
-      return { error: "User not found", status: 404 };
+      return { success: false as const, error: "User not found", status: 404 };
     }
 
     return {
-      success: true,
+      success: true as const,
       user: { id: user.id, username: user.username, email: user.email },
     };
   } catch (error) {
@@ -95,11 +96,11 @@ export const getUserInfo = async (username: string) => {
     const result = stmt.rows[0] as UserLogin | undefined;
 
     if (!result) {
-      return { error: "User not found", status: 404 };
+      return { success: false as const, error: "User not found", status: 404 };
     }
 
     return {
-      success: true,
+      success: true as const,
       user: {
         id: result.id,
         username: result.username,

@@ -13,15 +13,11 @@ export const handleLogin = async (c: Context) => {
 
     const dbResult = await getUserInfo(requestBody.username);
 
-    if (!dbResult) {
+    if (!dbResult.success) {
       return c.json({ success: false, message: "Invalid credentials" }, 401);
     }
 
     const user = dbResult.user;
-
-    if (!user) {
-      return c.json({ success: false, error: "Invalid credentials" }, 401);
-    }
 
     const isMatch = await Bun.password.verify(
       requestBody.password,
@@ -70,7 +66,7 @@ export const handleSignUp = async (c: Context) => {
       requestBody.email
     );
 
-    if ("error" in result) {
+    if (!result.success) {
       return c.json(
         { success: false, error: result.error },
         result.status as any
