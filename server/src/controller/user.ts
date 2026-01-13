@@ -4,6 +4,7 @@ import type { LoginReq, UserReq } from "../types/types.js";
 import { validateLogin, validateRegistration } from "../utils/validator.js";
 import { createUser, getUserInfo } from "../db/queries/users.js";
 import { eraseCookie, setCookies } from "../utils/cookies.js";
+import { COOKIE_NAME } from "../utils/cookie-options.js";
 
 export const handleLogin = async (c: Context) => {
   try {
@@ -103,7 +104,7 @@ export const handleSignUp = async (c: Context) => {
 
 export const handleLogOut = async (c: Context) => {
   try {
-    eraseCookie(c);
+    eraseCookie(c, COOKIE_NAME);
     return c.json({ success: true, message: "Logged out successfully" }, 201);
   } catch (error) {
     return c.json({ success: false, error: "Internal server error" }, 500);

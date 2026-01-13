@@ -12,6 +12,6 @@ export const setCookies = async (c: Context, userId: string) => {
   await setSignedCookie(c, COOKIE_NAME, token, secretKey, cookieOptions);
 };
 
-export const eraseCookie = (c: Context) => {
-  deleteCookie(c, COOKIE_NAME);
+export const eraseCookie = (c: Context, cookieName: string) => {
+  deleteCookie(c, cookieName);
 };

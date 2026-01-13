@@ -38,18 +38,24 @@ export const signUpHandler = async (formdata: FormData) => {
 
 
 export const signoutHandler = async () => {
-  const response = await fetch(`${API_URL}api/auth/logout`, {
-    method: 'POST',
-    headers: {},
-    credentials: "include",
-  })
+  try {
+    const response = await fetch(`${API_URL}api/auth/logout`, {
+      method: 'POST',
+      credentials: "include",
+    })
 
-  if (!response.ok) return { data: null, message: "No se pudo realizar la petición" }
+    const data = await response.json()
 
-  const data = await response.json()
+    if (!response.ok) {
+      return {
+        success: false,
+        message: data.message || data.error || "No se pudo cerrar la sesión"
+      }
+    }
 
-  return data
+    return data // El backend ya envía { success: true, message: "..." }
+  } catch (error) {
+    return { success: false, message: "Error de conexión con el servidor" }
+  }
 }
-
-
 
