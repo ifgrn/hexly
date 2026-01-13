@@ -1,4 +1,5 @@
 import type { Context } from "hono";
+import bcrypt from "bcrypt";
 import type { LoginReq, UserReq } from "../types/types.js";
 import { validateLogin, validateRegistration } from "../utils/validator.js";
 import { createUser, getUserInfo } from "../db/queries/users.js";
@@ -19,7 +20,7 @@ export const handleLogin = async (c: Context) => {
 
     const user = dbResult.user;
 
-    const isMatch = await Bun.password.verify(
+    const isMatch = await bcrypt.compare(
       requestBody.password,
       user.password_hash
     );
@@ -58,7 +59,8 @@ export const handleSignUp = async (c: Context) => {
 
     if (!isValid) return c.json({ succcess: false, errors }, 400);
 
-    const password_hash = await Bun.password.hash(requestBody.password);
+    const saltRounds = 10;
+    const password_hash = await bcrypt.hash(requestBody.password, saltRounds);
 
     const result = await createUser(
       requestBody.username,

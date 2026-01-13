@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "bun --env-file=.env run --hot src/index.ts",
     "start": "bun run src/index.ts",
-    "db:migration":"bun run src/db/migrations/migrations.ts"
+    "db:migration": "bun run src/db/migrations/migrations.ts"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/bun": "latest"
   },
   "peerDependencies": {
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.17.0",
+    "bcrypt": "^6.0.0",
     "hono": "^4.11.3"
   }
 }
