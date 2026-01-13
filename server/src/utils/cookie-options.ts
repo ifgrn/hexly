@@ -1,8 +1,5 @@
 const environment = process.env.NODE_ENV;
 
-export const COOKIE_NAME =
-  environment === "production" ? "__Host-token" : "token";
-
 export const cookieOptions = {
   path: "/",
   secure: environment === "production",
